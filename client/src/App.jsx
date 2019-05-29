@@ -21,7 +21,6 @@ function App() {
   const [peerSrc, setPeerSrc] = useState(null);
 
   useEffect(() => {
-    console.log('Did Mount');
     socket
       .on('init', data => setClientID(data.id))
       .on('request', (data) => {

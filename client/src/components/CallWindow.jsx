@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /* eslint-disable jsx-a11y/media-has-caption */
 /* eslint-disable no-use-before-define */
 
@@ -6,11 +5,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import _ from 'lodash';
-
-const btns = [
-  { type: 'Video', icon: 'fa-video' },
-  { type: 'Audio', icon: 'fa-microphone' },
-];
 
 const CallWindow = (props) => {
   const peerVideo = useRef(null);
@@ -26,9 +20,7 @@ const CallWindow = (props) => {
 
   useEffect(() => {
     if (configs) {
-      console.log(configs);
       _.forEach(configs, (conf, type) => mediaDevice.toggle(_.capitalize(type), conf));
-
 
       setDeviceType({
         Video: configs.video,
@@ -43,20 +35,28 @@ const CallWindow = (props) => {
   }
 
   function toggleMediaDevice(thisDeviceType) {
-    // this.setState({
-    //   [deviceType]: !this.state[deviceType],
-    // });
-
-    setDeviceType(...!thisDeviceType);
-
-    mediaDevice.toggle(thisDeviceType);
+    if (thisDeviceType === 'Video') {
+      setDeviceType({
+        Video: !deviceType.Video,
+        Audio: deviceType.Audio,
+      });
+    } else {
+      setDeviceType({
+        Video: deviceType.Video,
+        Audio: !deviceType.Audio,
+      });
+    }
+    return mediaDevice.toggle(thisDeviceType);
   }
 
   function renderControlButtons() {
-    console.log(deviceType);
     const getClass = (icon, type) => classnames(`btn-action fa ${icon}`, {
       disable: !deviceType[type],
     });
+    const btns = [
+      { type: 'Video', icon: 'fa-video' },
+      { type: 'Audio', icon: 'fa-microphone' },
+    ];
 
     return btns.map(btn => (
       <button

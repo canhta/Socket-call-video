@@ -70,9 +70,13 @@ function initSocket(socket) {
       });
     })
     .on('request', (data) => {
+      console.log('Request:', data);
+
       sendTo(data.to, to => to.emit('request', { from: id }));
     })
     .on('call', (data) => {
+      console.log('Call:', data);
+
       sendTo(
         data.to,
         to => to.emit('call', { ...data, from: id }),
