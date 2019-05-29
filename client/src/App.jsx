@@ -21,7 +21,7 @@ function App() {
   const [peerSrc, setPeerSrc] = useState(null);
 
   useEffect(() => {
-    console.log('Component Did Mount 1');
+    console.log('Did Mount');
     socket
       .on('init', data => setClientID(data.id))
       .on('request', (data) => {
@@ -36,11 +36,7 @@ function App() {
       })
       .on('end', endCall(false))
       .emit('init');
-
-    return () => {
-      console.log('Component Did Unmount 1');
-    };
-  });
+  }, []);
 
   function startCall(isCaller, friendID, config) {
     configs.current = config;

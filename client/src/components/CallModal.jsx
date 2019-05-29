@@ -9,7 +9,7 @@ const CallModal = (props) => {
 
   function acceptWithVideo(video) {
     const config = { audio: true, video };
-    return () => startCall(false, callFrom, config);
+    return startCall(false, callFrom, config);
   }
   return (
     <div className={classnames('call-modal', status)}>
@@ -20,7 +20,7 @@ is calling ...
       </p>
       <button
         type="button"
-        className="btn-action fa fa-video-camera"
+        className="btn-action fa fa-video"
         onClick={() => acceptWithVideo(true)}
       />
       <button

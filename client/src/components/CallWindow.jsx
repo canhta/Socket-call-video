@@ -8,7 +8,7 @@ import classnames from 'classnames';
 import _ from 'lodash';
 
 const btns = [
-  { type: 'Video', icon: 'fa-video-camera' },
+  { type: 'Video', icon: 'fa-video' },
   { type: 'Audio', icon: 'fa-microphone' },
 ];
 

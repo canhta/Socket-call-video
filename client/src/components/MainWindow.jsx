@@ -7,9 +7,9 @@ const MainWindow = (props) => {
   const [friendID, setFriendID] = useState(null);
 
   function callWithVideo(video) {
-    const config = { audio: true };
-    config.video = video;
-    return () => startCall(true, friendID, config);
+    const configs = { audio: true };
+    configs.video = video;
+    return startCall(true, friendID, configs);
   }
   return (
     <div className="container main-window">
@@ -30,7 +30,7 @@ const MainWindow = (props) => {
         />
         <div>
           <button
-            className="btn-action fa fa-video-camera"
+            className="btn-action fa fa-video"
             onClick={() => callWithVideo(true)}
           />
           <button

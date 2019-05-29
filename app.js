@@ -90,7 +90,7 @@ function initSocket(socket) {
   return socket;
 }
 
-const port = process.env.PORT || '3000';
+const port = process.env.PORT || 5000;
 server.listen(port);
 console.log(`Listen on port ${port}`);
 sio.listen(server, { log: true }).on('connection', initSocket);
