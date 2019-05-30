@@ -3,6 +3,7 @@ import MediaDevice from './MediaDevice';
 import Emitter from './Emitter';
 import socket from './socket';
 
+// STUNS https://gist.github.com/yetithefoot/7592580
 const PC_CONFIG = { iceServers: [{ urls: ['stun:stun.l.google.com:19302'] }] };
 
 class PeerConnection extends Emitter {
@@ -46,14 +47,16 @@ class PeerConnection extends Emitter {
   }
 
   createOffer() {
-    this.pc.createOffer()
+    this.pc
+      .createOffer()
       .then(this.getDescription.bind(this))
       .catch(err => console.log(err));
     return this;
   }
 
   createAnswer() {
-    this.pc.createAnswer()
+    this.pc
+      .createAnswer()
       .then(this.getDescription.bind(this))
       .catch(err => console.log(err));
     return this;

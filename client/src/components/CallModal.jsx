@@ -7,6 +7,9 @@ const CallModal = (props) => {
     status, callFrom, startCall, rejectCall,
   } = props;
 
+  /**
+   * @param {Boolean} video
+   */
   function acceptWithVideo(video) {
     const config = { audio: true, video };
     return startCall(false, callFrom, config);

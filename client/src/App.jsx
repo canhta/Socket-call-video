@@ -14,9 +14,11 @@ function App() {
   const configs = useRef(null);
 
   const [clientID, setClientID] = useState('');
+  // Display Components if status === "active"
   const [callWindow, setCallWindow] = useState('');
   const [callModal, setCallModal] = useState('');
   const [callFrom, setCallFrom] = useState('');
+
   const [localSrc, setLocalSrc] = useState(null);
   const [peerSrc, setPeerSrc] = useState(null);
 

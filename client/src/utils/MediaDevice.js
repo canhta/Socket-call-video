@@ -30,6 +30,7 @@ class MediaDevice extends Emitter {
 
   /**
    * Turn on/off a device
+   * https://developer.mozilla.org/en-US/docs/Web/API/MediaStream
    * @param {String} type - Type of the device
    * @param {Boolean} [on] - State of the device
    */

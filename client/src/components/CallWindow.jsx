@@ -7,6 +7,7 @@ import classnames from 'classnames';
 import _ from 'lodash';
 
 const CallWindow = (props) => {
+  // Refs audio of users
   const peerVideo = useRef(null);
   const localVideo = useRef(null);
   // Type of the device eg: Video, Audio
@@ -15,7 +16,7 @@ const CallWindow = (props) => {
   const {
     peerSrc, localSrc, status, configs, mediaDevice, endCall,
   } = props;
-
+  // DidMount
   useEffect(() => setMediaStream());
 
   useEffect(() => {
